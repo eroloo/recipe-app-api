@@ -1,9 +1,9 @@
- ---
- name:  Checks
+---
+name: Checks
 
- on:  [push]
+on: [push]
 
- jobs:
+jobs:
   test-lint:
     name: Test and Lint
     runs-on: ubuntu-20.04
