@@ -1,7 +1,7 @@
 FROM python:3.9-alpine3.13
 LABEL maintainer="pnc4"
 
-ENV PYTHONBUFFERED 1
+ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements
 COPY ./requirements-dev.txt /tmp/requirements-dev.txt
@@ -18,7 +18,7 @@ RUN python -m venv /py && \
     /py/bin/pip install -r /tmp/requirements && \
     if [ $DEV = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements-dev.txt ; \
-    fi && \ 
+    fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
     adduser \
